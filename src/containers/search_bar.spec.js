@@ -25,4 +25,10 @@ describe('SearchBar Component', () => {
    // console.log(SearchBar.state + " efmnosdhfiodjsfiojsoi")
     // expect(wrapper.find('input').text='abc').toEqual(SearchBar.state);
   })
+
+  it('should prevent reloading page when clicking submit', () => {
+  })
+
+
+
 })
