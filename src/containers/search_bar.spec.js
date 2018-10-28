@@ -16,4 +16,9 @@ describe('SearchBar Component', () => {
   it('should render a search button', () => {
     expect(wrapper.find('button').text()).toBe('Search');
   })
+
+  it('should update state as user types', () => {
+    // TODO
+    // expect(wrapper.find('input').text="abc").toEqual(SearchBar.);
+  })
 })
