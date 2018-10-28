@@ -11,13 +11,18 @@ class SearchBar extends Component {
         this.onInputChange = this.onInputChange.bind(this);
     }
 
+    onFormSubmit(event) {
+        event.preventDefault();
+    }
+
     onInputChange(event) {
         this.setState( {term: event.target.value} );
+        console.log(this.state.term);
     }
 
     render() {
         return(
-            <form className="form-horizontal">
+            <form onSubmit={ this.onFormSubmit } className="form-horizontal">
                 <div className="row">
                     <div className="col-md-10">
                         <div className="form-group">

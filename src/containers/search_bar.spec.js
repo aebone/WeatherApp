@@ -19,6 +19,10 @@ describe('SearchBar Component', () => {
 
   it('should update state as user types', () => {
     // TODO
-    // expect(wrapper.find('input').text="abc").toEqual(SearchBar.);
+   // wrapper.setState({term: "dmflkd"});
+    //console.log(wrapper.state.term + " efmnosdhfiodjsfiojsoi")
+   // SearchBar.setState({term: "dmflkd"});
+   // console.log(SearchBar.state + " efmnosdhfiodjsfiojsoi")
+    // expect(wrapper.find('input').text='abc').toEqual(SearchBar.state);
   })
 })
