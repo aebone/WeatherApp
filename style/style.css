@@ -1,0 +1,8 @@
+td, th {
+    vertical-align: center !important;
+    text-align: center !important;
+}
+
+svg {
+    height: 150px;
+}
