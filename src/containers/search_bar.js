@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+// import the action
+import { fetchWeather } from '../actions/index';
 
 class SearchBar extends Component {
 
@@ -9,15 +13,18 @@ class SearchBar extends Component {
 
         // bind onInputChange
         this.onInputChange = this.onInputChange.bind(this);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
     onFormSubmit(event) {
         event.preventDefault();
+
+        this.props.fetchWeather(this.state.term);
+        this.setState({ term: '' })
     }
 
     onInputChange(event) {
         this.setState( {term: event.target.value} );
-        console.log(this.state.term);
     }
 
     render() {
@@ -38,4 +45,11 @@ class SearchBar extends Component {
     }
 }
 
-export default SearchBar;
+// anything returned from this function will endup as props
+function mapDispatchToProps(dispatch) {
+    // whenever selectBook is called, the result should be passed
+    // to all of reducers through dispatch
+    return bindActionCreators({ fetchWeather }, dispatch) // selectBook imported
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
