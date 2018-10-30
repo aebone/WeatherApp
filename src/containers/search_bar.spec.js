@@ -27,8 +27,13 @@ describe('SearchBar Component', () => {
   })
 
   it('should prevent reloading page when clicking submit', () => {
+    //expect(wrapper.find('button').simulate('click')).expect
   })
 
+  it('should send the right city name when clicking submit button', () => {
+    wrapper.find('input').text='boston';
+    wrapper.find('button').simulate('click');
 
+  })
 
 })
