@@ -1,16 +1,16 @@
 import axios from 'axios';
-import IndexAction from '../actions/index';
+import React from 'react';
 
-const API_KEY = '7e7b9573de93e70e9b7311e9180bcadc';
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+class IndexService extends React.Component {
 
-class IndexService {
+    constructor(props) {
+        super(props);
 
-    fetchWeather() {
-        const url = ROOT_URL + '&q=' + city + ',us';
-        const request = axios.get();
+        const API_KEY = '7e7b9573de93e70e9b7311e9180bcadc';
+        const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+        const url = ROOT_URL + '&q=' + props + ',us';
 
-        return request;
+        return axios.get(url);
     }
 }
 
