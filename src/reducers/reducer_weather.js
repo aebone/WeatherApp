@@ -1,4 +1,5 @@
 import { FETCH_WEATHER } from "../actions/index";
+import { GET_TODOS_FAILURE } from "../services/index_service";
 
 // state argument is not application state, 
 //it's the reducer state
@@ -8,6 +9,9 @@ export default function(state = {}, action) {
         case FETCH_WEATHER:
             //return state.concat([action.payload.data]);
             return action.payload.data;
+        case GET_TODOS_FAILURE:
+            return { error: true };
+        default:
+            return state;
     }
-    return state; // initial reducer state? (no click)
 }

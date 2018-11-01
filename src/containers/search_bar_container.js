@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 import SearchBarView from '../views/search_bar_view';
+import IndexService from '../services/index_service';
 
 class SearchBarContainer extends Component {
 
     constructor(props) {
         super(props);
 
-        this.state = { term: '' };
+        this.state = { city: '' };
 
         // bind functions so they can use this.
         this.onInputChange = this.onInputChange.bind(this);
@@ -18,12 +19,12 @@ class SearchBarContainer extends Component {
 
     onFormSubmit(event) {
         event.preventDefault();
-        this.props.fetchWeather(this.state.term); // call the action
-        this.setState({ term: '' })
+        this.props.fetchWeatherForCity(this.state.city); // should call service, not action
+        this.setState({ city: '' })
     }
 
     onInputChange(event) {
-        this.setState( {term: event.target.value} );
+        this.setState( {city: event.target.value} );
     }
 
     render() {
@@ -33,11 +34,12 @@ class SearchBarContainer extends Component {
     }
 }
 
-// anything returned from this function will endup as props
 function mapDispatchToProps(dispatch) {
-    // whenever fetchWeather is called, the result should be passed
-    // to all of reducers through dispatch
-    return bindActionCreators({ fetchWeather }, dispatch) // fetchWeather imported
+  return {
+      fetchWeatherForCity: city => {
+          dispatch(new IndexService(city))
+      }
+  }
 }
 
 export default connect(null, mapDispatchToProps)(SearchBarContainer);

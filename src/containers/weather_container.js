@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import WeatherView from '../views/weather_view'
 
 class WeatherContainer extends Component {
-    render() {        
+    render() {
         return (
             <WeatherView cityData={ this.props.weather }/>
         )

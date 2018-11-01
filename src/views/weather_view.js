@@ -7,9 +7,12 @@ class WeatherView extends Component {
 
     render() {        
         if (_.isEmpty(this.props.cityData)) {
-            console.log("estou aqui");
             return (
                 <div>Type a city</div>
+            )
+        } else if (this.props.cityData.error) {
+            return (
+                <div>Search error</div>
             )
         }
 
