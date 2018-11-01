@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchWeather } from '../actions/index';
 import SearchBarView from '../views/search_bar_view';
-import IndexService from '../services/index_service';
+import IndexService from '../services/weather_service';
 
 class SearchBarContainer extends Component {
 
@@ -12,14 +10,13 @@ class SearchBarContainer extends Component {
 
         this.state = { city: '' };
 
-        // bind functions so they can use this.
         this.onInputChange = this.onInputChange.bind(this);
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
     onFormSubmit(event) {
         event.preventDefault();
-        this.props.fetchWeatherForCity(this.state.city); // should call service, not action
+        this.props.fetchWeatherForCity(this.state.city);
         this.setState({ city: '' })
     }
 
@@ -29,7 +26,7 @@ class SearchBarContainer extends Component {
 
     render() {
         return(
-            <SearchBarView onSubmit={ this.onFormSubmit } value={ this.state.term } onChange={ this.onInputChange } />
+            <SearchBarView onSubmit={ this.onFormSubmit } value={ this.state.city } onChange={ this.onInputChange } />
         )
     }
 }
