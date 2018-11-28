@@ -1,11 +1,11 @@
-import { FETCH_WEATHER, GET_TODOS_FAILURE } from "../actions/action";
+import { GET_TODOS_FAILURE, CLEAN_ERROR } from "../actions/errors_actions";
 
 export default function(state = {}, action) {
     switch(action.type) {
-        case FETCH_WEATHER:
-            return action.payload.data;
         case GET_TODOS_FAILURE:
             return { error: true };
+        case CLEAN_ERROR:
+            return { error: false };
         default:
             return state;
     }

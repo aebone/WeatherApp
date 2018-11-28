@@ -5,14 +5,15 @@ import WeatherView from '../views/weather_view'
 class WeatherContainer extends Component {
     render() {
         return (
-            <WeatherView cityData={ this.props.weather }/>
+            <WeatherView cityData={ this.props.weather } error={this.props.error} />
         )
     }
 }
 
 function mapStateToProps(state) {
     return {
-        weather: state.weather
+        weather: state.weather,
+        error: state.error
     }
 }
 

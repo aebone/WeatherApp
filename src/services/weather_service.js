@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { fetchWeather } from '../actions/action';
-import { handleError } from '../actions/action';
+import { fetchWeather } from '../actions/weather_actions';
+import { handleError, cleanError } from '../actions/errors_actions';
 
 class IndexService {
 
@@ -11,9 +11,11 @@ class IndexService {
                 
         return (dispatch) => {
             return axios.get(url).then((response) => {
-                dispatch(fetchWeather(response))
+                dispatch(fetchWeather(response));
+                dispatch(cleanError());
             }).catch((error) => {
-                dispatch(handleError(error))
+                console.log(error);
+                dispatch(handleError());
             })
         }
     }

@@ -7,11 +7,3 @@ export function fetchWeather(response) {
         payload: response
     }
 }
-
-export function handleError(error) {
-    return {
-        type: GET_TODOS_FAILURE,
-        payload: error,
-        error: true
-    }
-}

@@ -5,14 +5,17 @@ import _ from 'lodash';
 
 class WeatherView extends Component {
 
-    render() {        
+    render() { 
+
+        if (this.props.error.error === true) {
+            return (
+                <div>Search error</div>
+            )
+        }
+
         if (_.isEmpty(this.props.cityData)) {
             return (
                 <div>Type a city</div>
-            )
-        } else if (this.props.cityData.error) {
-            return (
-                <div>Search error</div>
             )
         }
 
